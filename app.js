@@ -1,6 +1,10 @@
 
-function sayHello(name) {
-    console.log('Hello' + name);
-}
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-sayHello("Mosh");
+emitter.on('messageLogged', function () {
+    console.log('Lister called');
+});
+
+emitter.emit('messageLogged');
+
